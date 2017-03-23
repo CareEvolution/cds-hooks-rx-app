@@ -32,7 +32,11 @@ const Cards = React.createClass({
 
   launchService(e, url) {
     e.preventDefault();
-    var popup = window.open(url, '_blank');
+    // var popup = window.open(url, '_blank');
+    AppDispatcher.dispatch({
+      type: ActionTypes.SET_SMART_APP_URL,
+      url
+    });
   },
 
   render() {
@@ -65,7 +69,7 @@ const Cards = React.createClass({
             {l.label}</button>
       ))}
           {c.link.map(l => (
-      <a key={l.key} onClick={e => this.launchService(e, l.url)} target="_blank" href={l.url}>
+      <a key={l.key} onClick={e => this.launchService(e, l.url)} target="_blank" href={l.url} style={{marginRight: '10px'}}>
               <span className="glyphicon glyphicon-link" aria-hidden="true"></span>
               {l.label}</a>
       ))}

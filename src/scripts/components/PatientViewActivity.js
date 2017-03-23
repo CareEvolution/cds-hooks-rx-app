@@ -6,6 +6,7 @@ import ProblemSelector from './ProblemSelector';
 import DateBox from './DateBox';
 import FhirView from './FhirView';
 import Cards from './Cards';
+import SmartApp from './SmartApp';
 
 const PatientViewActivity = React.createClass({
 
@@ -23,7 +24,7 @@ const PatientViewActivity = React.createClass({
         <div className="decision-spacer"></div>
         <Cards className="card-holder" decisions={this.props.all.get('decisions')} />
       </div>
-      <FhirView {...this.props} />
+      <SmartApp {...this.props} />
     </div>
 
   }

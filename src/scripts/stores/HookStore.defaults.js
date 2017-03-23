@@ -1,4 +1,5 @@
-var url = runtime.CDS_HOOKS_URL
+var url = runtime.CDS_HOOKS_URL;
+var webClientUrl = 'http://localhost:50000/WebClient';
 
 export default {
   "drug-interaction-cds-hook": {
@@ -73,6 +74,23 @@ export default {
     "enabled": true,
     "url": url + "/pt-hello-world/$cds-hook",
     "name": "Patient Hello World",
+    "activity": "patient-view",
+    "preFetchTemplate": {
+      "resourceType": "Bundle",
+      "type": "transaction",
+      "entry": [{
+        "request": {
+          "method": "GET",
+          "url": "Patient/{{Patient.id}}"
+        }
+      }]
+    }
+  },
+  "ceanywhere": {
+    "id": "ceanywhere",
+    "enabled": true,
+    "url": webClientUrl + "/cds-services/ceanywhere",
+    "name": "CEAnywhere",
     "activity": "patient-view",
     "preFetchTemplate": {
       "resourceType": "Bundle",

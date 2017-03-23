@@ -249,6 +249,7 @@ pre {
   display: table-cell;
   width: 55%;
   padding: 30px;
+  vertical-align: top;
 }
 
 .fhir-view {
@@ -322,6 +323,9 @@ pre {
   }
   &:hover {
     background: #f6f6f6;
+  }
+  p {
+    margin-bottom: 0;
   }
 }
 
@@ -655,7 +659,7 @@ table.drug-choice {
   }
 
   .app-footer {
-    height: auto; 
+    height: auto;
   }
 
   .order-entry {

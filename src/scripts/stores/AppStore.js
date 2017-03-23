@@ -7,6 +7,7 @@ import DecisionStore from './DecisionStore'
 import moment from 'moment'
 import uuid from 'node-uuid'
 import FhirServerStore from './FhirServerStore'
+import SmartAppStore from './SmartAppStore'
 import { getIn, paramsToJson } from '../../../mock-cds-backend/utils.js'
 
 var AppDispatcher = require('../dispatcher/AppDispatcher')
@@ -22,6 +23,7 @@ DateStore.addChangeListener(_changed)
 HookStore.addChangeListener(_changed)
 DecisionStore.addChangeListener(_changed)
 FhirServerStore.addChangeListener(_changed)
+SmartAppStore.addChangeListener(_changed)
 
 var AppStore = assign({}, EventEmitter.prototype, {
 
@@ -55,7 +57,8 @@ function _changed() {
     drug: DrugStore.getState(),
     hooks: HookStore.getState(),
     decisions: DecisionStore.getState(),
-    fhirServer: FhirServerStore.getState()
+    fhirServer: FhirServerStore.getState(),
+    smartApp: SmartAppStore.getState()
   }))
   AppStore.emitChange()
 }
